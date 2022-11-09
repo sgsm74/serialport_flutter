@@ -43,4 +43,10 @@ class MethodChannelSerialportFlutter extends SerialportFlutterPlatform {
         await methodChannel.invokeMethod<bool>('write', {"data": data});
     return result;
   }
+
+  @override
+  Future<bool?> close() async {
+    final result = await methodChannel.invokeMethod<bool>('close');
+    return result;
+  }
 }

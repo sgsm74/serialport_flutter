@@ -43,4 +43,8 @@ abstract class SerialportFlutterPlatform extends PlatformInterface {
   Future<bool?> write(Uint8List data) {
     throw UnimplementedError('write() has not been implemented.');
   }
+
+  Future<bool?> close() {
+    throw UnimplementedError('close() has not been implemented.');
+  }
 }

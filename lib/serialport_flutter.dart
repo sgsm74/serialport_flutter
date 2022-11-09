@@ -22,4 +22,8 @@ class SerialportFlutter {
   Future<bool?> write(Uint8List data) {
     return SerialportFlutterPlatform.instance.write(data);
   }
+
+  Future<bool?> close() {
+    return SerialportFlutterPlatform.instance.close();
+  }
 }
