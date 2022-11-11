@@ -26,7 +26,8 @@ class MockSerialportFlutterPlatform
   }
 
   @override
-  Future<bool?> open(String filePath, int baudrate) {
+  Future<bool?> open(
+      String filePath, int baudrate, int dataBits, int parity, int stopBit) {
     throw UnimplementedError();
   }
 

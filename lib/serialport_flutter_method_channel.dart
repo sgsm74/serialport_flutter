@@ -30,9 +30,15 @@ class MethodChannelSerialportFlutter extends SerialportFlutterPlatform {
   }
 
   @override
-  Future<bool?> open(String filePath, int baudrate) async {
-    final result = await methodChannel.invokeMethod<bool>(
-        'open', {"devicePath": filePath, "baudrate": baudrate});
+  Future<bool?> open(String filePath, int baudrate, int dataBits, int parity,
+      int stopBits) async {
+    final result = await methodChannel.invokeMethod<bool>('open', {
+      "devicePath": filePath,
+      "baudrate": baudrate,
+      "dataBits": dataBits,
+      "parity": parity,
+      "stopBits": stopBits
+    });
     return result;
   }
 

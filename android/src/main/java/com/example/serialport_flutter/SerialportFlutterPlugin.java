@@ -89,6 +89,9 @@ public class SerialportFlutterPlugin implements FlutterPlugin, MethodCallHandler
     } else if(call.method.equals("open")) {
         final String devicePath = call.argument("devicePath");
         final int baudrate = call.argument("baudrate");
+        final int dataBits = call.argument("dataBits"); 
+        final int parity = call.argument("parity"); 
+        final int stopBits = call.argument("stopBits");
         Log.d(TAG, "Open " + devicePath + ", baudrate: " + baudrate);
         Boolean openResult = openDevice(devicePath, baudrate);
         result.success(openResult);
@@ -130,7 +133,7 @@ public class SerialportFlutterPlugin implements FlutterPlugin, MethodCallHandler
     return devicesPath;
   }
 
-  private Boolean openDevice(String devicePath, int baudrate) {
+  private Boolean openDevice(String devicePath, int baudrate, int dataBits, int parity, int stopBits) {
     if (mSerialPort == null) {
       /* Check parameters */
       if ((devicePath.length() == 0) || (baudrate == -1)) {
@@ -139,7 +142,7 @@ public class SerialportFlutterPlugin implements FlutterPlugin, MethodCallHandler
 
       /* Open the serial port */
       try {
-        mSerialPort = new SerialPort(new File(devicePath), baudrate, 0, 0 , 0);
+        mSerialPort = new SerialPort(new File(devicePath), baudrate, dataBits, parity , stopBits);
         mOutputStream = mSerialPort.getOutputStream();
         mInputStream = mSerialPort.getInputStream();
         mReadThread = new ReadThread();
@@ -164,13 +167,6 @@ public class SerialportFlutterPlugin implements FlutterPlugin, MethodCallHandler
 
   private void writeData(byte[] data) {
     try {
-      //byte[] mBuffer = new byte[1024];
-		  //Arrays.fill(mBuffer, (byte) 0x55);
-      
-		// if (mSerialPort != null) {
-		// 	SendingThread mSendingThread = new SendingThread();
-		// 	mSendingThread.start();
-		// }
        mOutputStream.write(data);
        //mOutputStream.write('\n');
     } catch (IOException e) {
@@ -178,24 +174,6 @@ public class SerialportFlutterPlugin implements FlutterPlugin, MethodCallHandler
       Log.e(TAG, e.toString());
     }
   }
-  // private class SendingThread extends Thread {
-	// 	@Override
-	// 	public void run() {
-	// 		while (!isInterrupted()) {
-	// 			try {
-	// 				if (mOutputStream != null) {
-	// 					mOutputStream.write(mBuffer);
-	// 				} else {
-	// 					return;
-	// 				}
-	// 			} catch (IOException e) {
-	// 				e.printStackTrace();
-	// 				return;
-	// 			}
-	// 		}
-	// 	}
-	// }
-
   
   @Override
   public void onDetachedFromEngine(@NonNull FlutterPluginBinding binding) {

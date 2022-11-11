@@ -36,7 +36,8 @@ abstract class SerialportFlutterPlatform extends PlatformInterface {
     throw UnimplementedError('getAllDevicesPath() has not been implemented.');
   }
 
-  Future<bool?> open(String filePath, int baudrate) {
+  Future<bool?> open(
+      String filePath, int baudrate, int dataBits, int parity, int stopBits) {
     throw UnimplementedError('open() has not been implemented.');
   }
 

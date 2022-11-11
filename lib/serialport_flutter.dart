@@ -15,8 +15,10 @@ class SerialportFlutter {
     return SerialportFlutterPlatform.instance.getAllDevicesPath();
   }
 
-  Future<bool?> open(String filePath, int baudrate) {
-    return SerialportFlutterPlatform.instance.open(filePath, baudrate);
+  Future<bool?> open(
+      String filePath, int baudrate, int dataBits, int parity, int stopBits) {
+    return SerialportFlutterPlatform.instance
+        .open(filePath, baudrate, dataBits, parity, stopBits);
   }
 
   Future<bool?> write(Uint8List data) {
