@@ -93,7 +93,7 @@ public class SerialportFlutterPlugin implements FlutterPlugin, MethodCallHandler
         final int parity = call.argument("parity"); 
         final int stopBits = call.argument("stopBits");
         Log.d(TAG, "Open " + devicePath + ", baudrate: " + baudrate);
-        Boolean openResult = openDevice(devicePath, baudrate);
+        Boolean openResult = openDevice(devicePath, baudrate, dataBits, parity, stopBits);
         result.success(openResult);
     } else if(call.method.equals("close")){
         Boolean closeResult = closeDevice();
