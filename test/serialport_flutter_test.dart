@@ -2,8 +2,6 @@ import 'dart:typed_data';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:serialport_flutter/serialport_flutter.dart';
-import 'package:serialport_flutter/serialport_flutter_platform_interface.dart';
-import 'package:serialport_flutter/serialport_flutter_method_channel.dart';
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 
 class MockSerialportFlutterPlatform

@@ -1,6 +1,6 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:serialport_flutter/serialport_flutter_method_channel.dart';
+import 'package:serialport_flutter/serialport_flutter.dart';
 
 void main() {
   MethodChannelSerialportFlutter platform = MethodChannelSerialportFlutter();
