@@ -7,11 +7,11 @@ class SerialportFlutter {
     return SerialportFlutterPlatform.instance.getPlatformVersion();
   }
 
-  Future<List<String>?> getAllDevices() {
+  Future<List?> getAllDevices() {
     return SerialportFlutterPlatform.instance.getAllDevices();
   }
 
-  Future<List<String>?> getAllDevicesPath() {
+  Future<List?> getAllDevicesPath() {
     return SerialportFlutterPlatform.instance.getAllDevicesPath();
   }
 

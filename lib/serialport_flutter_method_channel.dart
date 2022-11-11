@@ -17,16 +17,15 @@ class MethodChannelSerialportFlutter extends SerialportFlutterPlatform {
   }
 
   @override
-  Future<List<String>?> getAllDevices() async {
-    final devices =
-        await methodChannel.invokeMethod<List<String>>('getAllDevices');
+  Future<List?> getAllDevices() async {
+    final devices = await methodChannel.invokeMethod<List>('getAllDevices');
     return devices;
   }
 
   @override
-  Future<List<String>?> getAllDevicesPath() async {
+  Future<List?> getAllDevicesPath() async {
     final devicesPath =
-        await methodChannel.invokeMethod<List<String>>('getAllDevicesPath');
+        await methodChannel.invokeMethod<List>('getAllDevicesPath');
     return devicesPath;
   }
 

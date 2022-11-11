@@ -28,11 +28,11 @@ abstract class SerialportFlutterPlatform extends PlatformInterface {
     throw UnimplementedError('platformVersion() has not been implemented.');
   }
 
-  Future<List<String>?> getAllDevices() {
+  Future<List?> getAllDevices() {
     throw UnimplementedError('getAllDevices() has not been implemented.');
   }
 
-  Future<List<String>?> getAllDevicesPath() {
+  Future<List?> getAllDevicesPath() {
     throw UnimplementedError('getAllDevicesPath() has not been implemented.');
   }
 
