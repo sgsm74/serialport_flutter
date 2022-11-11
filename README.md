@@ -24,9 +24,7 @@ This plugin works only for Android devices.
 
 ``` dart
 bool openResult = await SerialportFlutter.open('/your/device/path', baudrate, dataBits, parity, stopBits);
-print(serialPort.isConnected) // true
 bool closeResult = await SerialportFlutter.close();
-print(serialPort.isConnected) // false
 ```
 
 ### Write data to device
