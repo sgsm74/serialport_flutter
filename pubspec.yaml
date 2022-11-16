@@ -1,7 +1,8 @@
 name: serialport_flutter
-description: A new Flutter plugin project.
+description: Serial Port plugin for Android devices
 version: 0.0.1
-homepage:
+homepage: https://saeedqasemi.ir
+repository: https://github.com/sgsm74/serialport_flutter
 
 environment:
   sdk: '>=2.18.2 <3.0.0'
