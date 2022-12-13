@@ -164,7 +164,7 @@ public class SerialportFlutterPlugin implements FlutterPlugin, MethodCallHandler
         return true;
       }
       return false;
-    } catch (IOException e) {
+    } catch (Exception e) {
       Log.e(TAG, "write data exception");
       Log.e(TAG, e.toString());
       return false;
@@ -175,7 +175,7 @@ public class SerialportFlutterPlugin implements FlutterPlugin, MethodCallHandler
     try {
        mOutputStream.write(data);
        //mOutputStream.write('\n');
-    } catch (Exception e) {
+    } catch (IOException e) {
       Log.e(TAG, "write data exception");
       Log.e(TAG, e.toString());
     }
