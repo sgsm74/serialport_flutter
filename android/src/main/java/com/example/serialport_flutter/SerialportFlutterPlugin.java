@@ -175,7 +175,7 @@ public class SerialportFlutterPlugin implements FlutterPlugin, MethodCallHandler
     try {
        mOutputStream.write(data);
        //mOutputStream.write('\n');
-    } catch (IOException e) {
+    } catch (Exception e) {
       Log.e(TAG, "write data exception");
       Log.e(TAG, e.toString());
     }
