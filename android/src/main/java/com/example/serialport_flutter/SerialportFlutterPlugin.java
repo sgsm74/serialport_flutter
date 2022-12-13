@@ -157,12 +157,17 @@ public class SerialportFlutterPlugin implements FlutterPlugin, MethodCallHandler
   }
 
   private Boolean closeDevice() {
-    if (mSerialPort != null) {
-      mSerialPort.close();
-      mSerialPort = null;
-      return true;
+    try {
+      if (mSerialPort != null) {
+        mSerialPort.close();
+        mSerialPort = null;
+        return true;
+      }
+      return false;
+    } catch (IOException e) {
+      Log.e(TAG, "write data exception");
+      Log.e(TAG, e.toString());
     }
-    return false;
   }
 
   private void writeData(byte[] data) {
